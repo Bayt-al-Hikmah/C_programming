@@ -33,7 +33,15 @@ void fire(Bullets **bul){
         return;
     }
 }
-
+void free_magazine(Bullets* bul){
+if (bul->next == NULL && bul->bullet == 0){
+        free(bul);
+        return ;
+    }
+    free_magazine(bul->next);
+    free(bul);
+    return;
+}
 int main(){
 	Bullets* magazine;
 	magazine = calloc(1, sizeof(Bullets));
@@ -46,5 +54,6 @@ int main(){
 	fire(&magazine);
 	fire(&magazine);
 	fire(&magazine);
+	free_magazine(magazine);
 	return 0;
 }
