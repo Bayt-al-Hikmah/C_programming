@@ -81,7 +81,7 @@ In C, variables can hold values that belong to one of the following data types:
      int b;                           // this is int
      float pi = 3.14;                 // this is float
      double m = 3.497488454;          // this is double
-     char a = 'A'                     // this is char
+     char A = 'A';                     // this is char
      int arr[] = {4 ,5 , 7};          // int array
      char message[] = "hello";        // char array
      char name[] = {'A', 'l', 'i'};   // char array
@@ -135,14 +135,15 @@ C provides basic arithmetic operators for manipulating numbers. These include:
      int e= a * b;
      int f = a / b;
      int g = a % b;
-     printf("c = %i", c);
-     printf("d = %i", d);
-     printf("e = %i", e);
-     printf("f = %i", f);
-     printf("g = %i", g);
+     printf("c = %i\n", c);
+     printf("d = %i\n", d);
+     printf("e = %i\n", e);
+     printf("f = %i\n", f);
+     printf("g = %i\n", g);
      return 0;
  }
 ```
+``\n`` is a special character that represents a newline. We use it to make a line break and jump to the next line.
 #### Remarque :
 We can create additional compound assignment operators by combining arithmetic operators with the assignment operator (=). These operators provide a concise way to modify the value of a variable.
 Here are some examples:
