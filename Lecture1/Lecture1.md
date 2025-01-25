@@ -196,9 +196,9 @@ Here are some common placeholder characters:
  int main(){
      int age;
      char name[10];
-     printf("Enter your name");
+     printf("Enter your name : ");
      scanf("%s", &name);
-     printf("Enter your age");
+     printf("Enter your age : ");
      scanf("%d", &age);
      printf("My name is %s and I am %d years old.\n", name, age); 
      return 0;
