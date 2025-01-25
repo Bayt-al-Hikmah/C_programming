@@ -108,19 +108,19 @@ instructions to run if non of the conditions is valide
 ```
 #include <stdio.h>
  
- int main(){
-     int n;
-     printf("Enter number :");
-     scanf("%d", &n);
-     if(n > 0){
-	     printf("Positive \n");
-     }else if(n < 0){
-	     printf("Negative \n");
-     }else{
-	     printf("Null \n");
-     }
-     return 0;
- }
+int main(){
+    int n;
+    printf("Enter number :");
+    scanf("%d", &n);
+    if(n > 0){
+        printf("Positive \n");
+    }else if(n < 0){
+        printf("Negative \n");
+    }else{
+        printf("Null \n");
+    }
+    return 0;
+}
 
 ```
 ### Switch Case statement :
@@ -154,32 +154,32 @@ Finally, we can see we used the `default` label for the last case. The instructi
 ```
 #include <stdio.h>
  
- int main(){
-     int n;
-     printf("Enter number :");
-     scanf("%d", &n);
-     switch(n){
-	     case 1:
-	     printf("One \n");
-	     break;
-	     case 2:
-	     printf("Two \n");
-	     break;
-	     case 3:
-	     printf("Three \n");
-	     break;
-	     case 4:
-	     printf("Four \n");
-		 break;
-	     case 5:
-	     printf("Five \n");
-	     break;
-	     default:
-	     printf("Other numbers \n");
-	     break;
-	     
-     }
- }
+int main(){
+    int n;
+    printf("Enter number :");
+    scanf("%d", &n);
+    switch(n){
+        case 1:
+            printf("One \n");
+            break;
+        case 2:
+            printf("Two \n");
+            break;
+        case 3:
+            printf("Three \n");
+            break;
+        case 4:
+            printf("Four \n");
+            break;
+        case 5:
+            printf("Five \n");
+            break;
+        default:
+            printf("Other numbers \n");
+            break;
+    }
+    return 0;
+}
 ```
 ## Loops :
 
@@ -209,10 +209,11 @@ instructions we want to repeat
 #include <stdio.h>
 
 int main(){
-     for (int i = 0; i < 5; i++){
-	     printf("Hello \n");
-     }
- }
+    for (int i = 0; i < 5; i++){
+        printf("Hello \n");
+    }
+    return 0;
+}
 ```
 ### While Loop :
 
@@ -229,12 +230,13 @@ If the condition is false from the start, the instructions inside the loop will 
 #include <stdio.h>
 
 int main(){
-	int i = 0;
+    int i = 0;
     while (i < 5){
-	     printf("Hello \n");
-	     i++;
-     }
- }
+        printf("Hello \n");
+        i++;
+    }
+    return 0;
+}
 ```
 ### Do While Loop :
 
@@ -251,12 +253,13 @@ As before, the instruction inside the ``do-while`` loop should change the value 
 #include <stdio.h>
 
 int main(){
-	int i = 0;
+    int i = 0;
     do{
-	     printf("Hello \n");
-	     i++;
-     }while (i < 5);
- }
+        printf("Hello \n");
+        i++;
+    }while (i < 5);
+    return 0;
+}
 ```
 ### Break and Continue :
 We can enhance the control of our loops by using the keywords `break` and `continue`:
@@ -268,19 +271,18 @@ We can enhance the control of our loops by using the keywords `break` and `conti
 #include <stdio.h>
 
 int main(){
-	int i = 0;
+    int i = 0;
     while (i < 50){
-	    i++;
-	    if(i % 2 == 0){
-		    continue;
-	    }
-	    else if(i == 25){
-		    break;
-	    }
-	     printf("%d \n", i);
-     }
-     return 0;
- }
+        i++;
+        if(i % 2 == 0){
+            continue;
+        }else if(i == 25){
+            break;
+        }
+        printf("%d \n", i);
+    }
+    return 0;
+}
 
 ```
 ## Tasks :
