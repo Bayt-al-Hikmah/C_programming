@@ -144,6 +144,21 @@ C provides basic arithmetic operators for manipulating numbers. These include:
  }
 ```
 ``\n`` is a special character that represents a newline. We use it to make a line break and jump to the next line.
+
+#### Escape sequence :
+**Escape sequences** are special character combinations used to represent certain non-printable or hard-to-type characters within a string or character literal. They always start with a backslash (`\`). This signals to the compiler that the following character has a special meaning and should not be treated literally.
+Here are some common escape sequences:
+- `\'` single quote
+- `\"` double quote
+- `\\` backslash
+- `\n` newline
+- `\r` carriage return
+- `\t` tab
+- `\b` backspace
+- `\f` form feed
+- `\v` vertical tab
+- `\a` Alert (bell)
+- 
 #### Remarque :
 We can create additional compound assignment operators by combining arithmetic operators with the assignment operator (=). These operators provide a concise way to modify the value of a variable.
 Here are some examples:
