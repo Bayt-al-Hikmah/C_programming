@@ -158,7 +158,6 @@ Here are some common escape sequences:
 - `\f` form feed
 - `\v` vertical tab
 - `\a` Alert (bell)
-- 
 #### Remarque :
 We can create additional compound assignment operators by combining arithmetic operators with the assignment operator (=). These operators provide a concise way to modify the value of a variable.
 Here are some examples:
