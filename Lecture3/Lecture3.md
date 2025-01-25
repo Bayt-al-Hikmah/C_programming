@@ -4,8 +4,8 @@
 - Working with Enum, Structs and Typedef
 ## Memory and Pointers :
 ### Introduction :
-Memory is the place where our computer store all data and variables that the programs use as grid each column has it own adress and inside it we can see the value we stored, C is powerfull cuz it let use access the memory and manipulate the values inside those grids
-to access and display memory adress of any vaariable in C we use & before the variable name
+Memory is the place where our computer store all data and variables that the programs use as grid each column has it own address and inside it we can see the value we stored, C is powerfull cuz it let use access the memory and manipulate the values inside those grids
+to access and display memory address of any variable in C we use & before the variable name
 ```
 #include <stdio.h>
 
@@ -20,14 +20,14 @@ Pointers are special variables that store the memory addresses of other variable
 ```
 int *p1; // this pointer for integers
 ```
-after creating pointer we can assign a memory adress and make it point to this case in memory like that
+after creating pointer we can assign a memory address and make it point to this case in memory like that
 ```
 #include <stdio.h>
 
 int main(){
 	int a = 2;
-	p1 = &a;
-	printf("The memory adress of a is %d", p1);
+	int* p1 = &a;
+	printf("The memory address of a is %d", p1);
     return 0;
 }
 
@@ -40,8 +40,8 @@ to access the value of the memory case that the pointer point to we use \* befor
 
 int main(){
 	int a = 2;
-	p1 = &a;
-	printf("The memory adress %d store this value %d", p1, *p1);
+	int *p1 = &a;
+	printf("The memory address %d store this value %d", p1, *p1);
     return 0;
 }
 ```
@@ -51,7 +51,7 @@ We can change the data in the case where the pointer is pointing by using ``*p1 
 
 int main(){
 	int a = 2;
-	p1 = &a;
+	int *p1 = &a;
 	printf("the value of a is %d \n", a);
 	*p1 = 10;
 	printf("the value of a changed to %d \n", a);
@@ -267,16 +267,16 @@ int main(){
     *(*(ptr + 3)) = 10;
     *(*(ptr + 3) + 1) = 11;
     *(*(ptr + 3) + 2) = 12;
-	for(int i = 0; i < 4; i++){
-		for(int j = 0; j < 3; j++){
-			printf("%d ", *(*(ptr + i) + j));
-		}
-		printf("\n");
-	}
-	for(int i=0;i<4;i++){
-		free(*(ptr+i));
-	}
-	free(ptr);
+    for(int i = 0; i < 4; i++){
+        for(int j = 0; j < 3; j++){
+            printf("%d ", *(*(ptr + i) + j));
+        }
+        printf("\n");
+    }
+    for(int i = 0; i < 4; i++){
+        free(*(ptr + i));
+    }
+    free(ptr);
     return 0;
 }
 
@@ -339,15 +339,15 @@ enum Dice {
 int main(){
     enum Dice result = Six;
     switch(result){
-	    case One:
-	    case Two:
-	    case Three:
-	    case Four:
-	    case Five:
-			printf("You lost :(");
-		break;
-	    case Six:
-		    printf("You won !");
+        case One:
+        case Two:
+        case Three:
+        case Four:
+        case Five:
+            printf("You lost :(");
+            break;
+        case Six:
+            printf("You won !");
 	    break;
     }
     return 0;
