@@ -1,6 +1,6 @@
 ## Objectives:
-- Working Memory and Pointer
-- Working with Dynamic Size Array
+- Working Memory and Pointers
+- Working with Dynamic Size Arrays
 - Working with Enum, Structs and Typedef
 ## Memory and Pointers :
 ### Introduction :
@@ -105,7 +105,7 @@ Just like `sizeof` and `malloc`, to use `free`, we should include the `<stdlib.h
 We can allocate memory using `calloc`. The key differences are:
 - `malloc` allocates memory without initializing it, so the allocated memory contains random values.
 - `calloc` allocates memory and initializes all its elements to zero.
-## Dynamic Size Array :
+## Dynamic Size Arrays :
 ### Introduction :
 
 Arrays are variables that can store multiple values of the same data type. These values are stored consecutively in memory, however, a significant limitation of arrays is their fixed size, to overcome this limitation, we can utilize pointers and dynamic memory allocation to create dynamically sized arrays
@@ -210,7 +210,7 @@ int main(){
 }
 ```
 
-### 2D Arrays
+### 2D Arrays :
 
 Arrays are variables that can hold multiple values of the same data type. A particularly interesting aspect is that arrays can hold other arrays as elements, enabling the creation of 2D arrays (which can represent tables). We can create both fixed-sized 2D arrays and dynamically sized 2D arrays.
 #### Fixed-Sized 2D Array :
@@ -238,7 +238,7 @@ int main(){
     return 0;
 }
 ```
-#### Dynamic-Sized 2D Array :
+#### Dynamic-Sized 2D Arrays :
 C provides a way to dynamically allocate memory and store the address of this memory using pointers. This enables us to create arrays that can grow and shrink in size.
 Furthermore, we can use multiple pointers to point to different blocks of memory. We can then store these pointers in an array, creating an "array of pointers." This results in a pointer that points to an array of pointers, where each pointer within that array points to a block of memory that can represent an array to store our data.
 Effectively, we have created a 2D dynamically allocated array.
@@ -406,7 +406,7 @@ int main(){
 }
 
 ```
-### Typedef
+### Typedef :
 C provides a way to create custom data types using the `typedef` keyword. To define a new type, we start by using the `typedef` keyword, followed by `struct`. Inside the curly braces `{}`, we specify the variables that the struct will hold. After the closing brace `}`, we add the name of the new type we are creating.by convention, type definitions use uppercase letters to show they are symbolic abbreviations, but lowercase can also be used.
 Once the new type is defined, we can create variables of this type by using the new type name, followed by the variable name.
 ```
@@ -445,7 +445,7 @@ Write a program that asks the user for the number of subjects they have, and for
 3. Display the subject number, the marks for each test in that subject, and the average for that subject.
 
 Finally, the program should display the overall total average across all subjects.
-### Task3 :
+### Task 3 :
 
 Write a program in C to represent a small library. The library should be represented as an array of books, where each book has the following details:
 
