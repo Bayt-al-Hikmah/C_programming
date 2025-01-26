@@ -33,7 +33,8 @@ int main(){
 
 
 ```
-to access the value of the memory case that the pointer point to we use \* before the pointer name
+to access the value of the memory case that the pointer point to we use \* before the pointer name  
+
 ![](./attachments/pointer.png)
 ```
 #include <stdio.h>
@@ -139,7 +140,8 @@ int main(){
 }
 ```
 To access the first value in a dynamic array, we use the pointer itself (e.g., `*p1`) because the pointer always points to the beginning of the array.
-To access subsequent values, we increment the pointer. This moves the pointer to the next memory address, allowing us to access the next element in the array. We repeat this process to access all the elements.
+To access subsequent values, we increment the pointer. This moves the pointer to the next memory address, allowing us to access the next element in the array. We repeat this process to access all the elements.  
+
 ![](./attachments/d_array.png)
 #### Example :
 ```
@@ -241,7 +243,8 @@ int main(){
 #### Dynamic-Sized 2D Arrays :
 C provides a way to dynamically allocate memory and store the address of this memory using pointers. This enables us to create arrays that can grow and shrink in size.
 Furthermore, we can use multiple pointers to point to different blocks of memory. We can then store these pointers in an array, creating an "array of pointers." This results in a pointer that points to an array of pointers, where each pointer within that array points to a block of memory that can represent an array to store our data.
-Effectively, we have created a 2D dynamically allocated array.
+Effectively, we have created a 2D dynamically allocated array.  
+
 ![](./attachments/image1.png)
 `
 #### Example :
