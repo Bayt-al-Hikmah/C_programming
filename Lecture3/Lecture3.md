@@ -4,8 +4,8 @@
 - Working with Enum, Structs and Typedef
 ## Memory and Pointers :
 ### Introduction :
-Memory is the place where our computer store all data and variables that the programs use as grid each column has it own address and inside it we can see the value we stored, C is powerfull cuz it let use access the memory and manipulate the values inside those grids
-to access and display memory address of any variable in C we use & before the variable name
+Memory is the place where our computer store all data and variables that the programs use as grid each column has it own address and inside it we can see the value we stored, C is powerfull cuz it let use access the memory and manipulate the values inside those grids.  
+To access and display memory address of any variable in C we use & before the variable name
 ```
 #include <stdio.h>
 
@@ -63,11 +63,11 @@ int main(){
 
 ### Dynamic Memory Allocation :
 
-When we declare a variable, the compiler reserves a specific memory location to store its value. We can obtain the address of this memory location using a pointer.
-However, pointers offer more than just accessing variable addresses. They enable **dynamic memory allocation**, which allows us to reserve memory space during program execution rather than having it fixed at compile time.
-The **`malloc()` function** is a key tool for dynamic memory allocation.
-- **`malloc()`** allocates a block of memory of the specified size and returns a pointer to the beginning of that block.
-- The argument we provide to `malloc()` is the size of the memory block we want to allocate, typically determined using the **`sizeof()` operator** to get the size of the data type.
+When we declare a variable, the compiler reserves a specific memory location to store its value. We can obtain the address of this memory location using a pointer.  
+However, pointers offer more than just accessing variable addresses. They enable **dynamic memory allocation**, which allows us to reserve memory space during program execution rather than having it fixed at compile time.  
+The **`malloc()` function** is a key tool for dynamic memory allocation.  
+- **`malloc()`** allocates a block of memory of the specified size and returns a pointer to the beginning of that block.  
+- The argument we provide to `malloc()` is the size of the memory block we want to allocate, typically determined using the **`sizeof()` operator** to get the size of the data type.  
 After successfully allocating memory using `malloc()`, we can use the allocated space just like we would use any other variable of the same data type.
 
 #### Example :
@@ -85,8 +85,8 @@ int main(){
 #### Remarque :
 To use the `malloc()` and `sizeof()` functions in our C program, we need to include the `<stdlib.h>` header file.
 ### Memory Deallocation :
-After we finish using a block of memory that we have dynamically allocated (for example, using the `malloc()` function), it is essential to release it back to the system.
-Failing to do so leads to a **memory leak**. A memory leak occurs when a program allocates memory but never releases it, gradually consuming more and more of the available memory. This can eventually cause the program to crash or the system to run out of memory for other applications.
+After we finish using a block of memory that we have dynamically allocated (for example, using the `malloc()` function), it is essential to release it back to the system.  
+Failing to do so leads to a **memory leak**. A memory leak occurs when a program allocates memory but never releases it, gradually consuming more and more of the available memory. This can eventually cause the program to crash or the system to run out of memory for other applications.  
 To prevent memory leaks, use the **`free()` function** to release the allocated memory when we are finished with it.
 #### Example :
 ```
@@ -118,7 +118,7 @@ Arrays are variables that can store multiple values of the same data type. These
     - Allocate the requested amount of memory for the resized array.
     - Optionally, free the original memory block.
 
-This approach provides flexibility by allowing the array to grow or shrink as needed during program execution.
+This approach provides flexibility by allowing the array to grow or shrink as needed during program execution.  
 When we're finished using the array, we should release the memory it's using. This prevents memory leaks and helps our program run smoothly. We do this by using the `free()` function.
 #### Example :
 ```
@@ -139,7 +139,7 @@ int main(){
     return 0;
 }
 ```
-To access the first value in a dynamic array, we use the pointer itself (e.g., `*p1`) because the pointer always points to the beginning of the array.
+To access the first value in a dynamic array, we use the pointer itself (e.g., `*p1`) because the pointer always points to the beginning of the array.  
 To access subsequent values, we increment the pointer. This moves the pointer to the next memory address, allowing us to access the next element in the array. We repeat this process to access all the elements.  
 
 ![](./attachments/d_array.png)
@@ -170,7 +170,7 @@ int main(){
 ```
 ``realloc`` allows us to copy the elements of a dynamic array and change its size
 ### Strings :
-Strings are essentially arrays of characters. A key characteristic of strings is that they always end with the null character ``'\0'``.
+Strings are essentially arrays of characters. A key characteristic of strings is that they always end with the null character ``'\0'``.  
 To create dynamically sized strings, we use a character pointer ``char *``.
 #### Example : 
 ```
@@ -188,7 +188,7 @@ int main(){
     return 0;
 }
 ```
-The last character in a string is always the null character ('\0'). This null character signals the end of the string to the compiler.
+The last character in a string is always the null character ('\0'). This null character signals the end of the string to the compiler.  
 Just like with arrays of other data types, you can use `realloc` to change the size of dynamically allocated memory for strings.
 #### Example :
 ```
@@ -217,7 +217,9 @@ int main(){
 Arrays are variables that can hold multiple values of the same data type. A particularly interesting aspect is that arrays can hold other arrays as elements, enabling the creation of 2D arrays (which can represent tables). We can create both fixed-sized 2D arrays and dynamically sized 2D arrays.
 #### Fixed-Sized 2D Array :
  
-Fixed-sized 2D arrays are useful when we store our data in a tabular format. We create them by first choosing the type of values we want to store inside our variable, then setting the size of the rows and columns. Finally, we create a main array and, instead of inserting individual values, we insert arrays within it.
+Fixed-sized 2D arrays are useful when we store our data in a tabular format. We create them by first choosing the type of values we want to store inside our variable, then setting the size of the rows and columns. 
+ 
+Finally, we create a main array and, instead of inserting individual values, we insert arrays within it.
 ```
 int table[3][2] = {{1, 2}, {3, 4}, {5, 6}};
 ```
@@ -241,8 +243,8 @@ int main(){
 }
 ```
 #### Dynamic-Sized 2D Arrays :
-C provides a way to dynamically allocate memory and store the address of this memory using pointers. This enables us to create arrays that can grow and shrink in size.
-Furthermore, we can use multiple pointers to point to different blocks of memory. We can then store these pointers in an array, creating an "array of pointers." This results in a pointer that points to an array of pointers, where each pointer within that array points to a block of memory that can represent an array to store our data.
+C provides a way to dynamically allocate memory and store the address of this memory using pointers. This enables us to create arrays that can grow and shrink in size.  
+Furthermore, we can use multiple pointers to point to different blocks of memory. We can then store these pointers in an array, creating an "array of pointers." This results in a pointer that points to an array of pointers, where each pointer within that array points to a block of memory that can represent an array to store our data.  
 Effectively, we have created a 2D dynamically allocated array.  
 
 ![](./attachments/image1.png)
@@ -358,9 +360,9 @@ int main(){
 
 ```
 ### Struct :
-Sometimes we want to represent more complex variables than just numbers and characters, such as real-world objects like students or cars. C allows us to do this using structures.
-With structures, we can create variables that hold other variables of different data types within them. For example, we can create a `struct Student` that contains members for the student's name (as a character array) and age (as an integer).
-To use a struct, we first need to define it. This is typically done outside of any function, similar to how we define enums. Inside the structure definition (within the curly braces `{}`), we declare the variables that the struct will hold.
+Sometimes we want to represent more complex variables than just numbers and characters, such as real-world objects like students or cars. C allows us to do this using structures.  
+With structures, we can create variables that hold other variables of different data types within them. For example, we can create a `struct Student` that contains members for the student's name (as a character array) and age (as an integer).  
+To use a struct, we first need to define it. This is typically done outside of any function, similar to how we define enums. Inside the structure definition (within the curly braces `{}`), we declare the variables that the struct will hold.  
 Inside a struct, we can include variables of any type, such as arrays, numbers, enums, or even other structs.
 ```
 struct Student {
@@ -410,7 +412,7 @@ int main(){
 
 ```
 ### Typedef :
-C provides a way to create custom data types using the `typedef` keyword. To define a new type, we start by using the `typedef` keyword, followed by `struct`. Inside the curly braces `{}`, we specify the variables that the struct will hold. After the closing brace `}`, we add the name of the new type we are creating.by convention, type definitions use uppercase letters to show they are symbolic abbreviations, but lowercase can also be used.
+C provides a way to create custom data types using the `typedef` keyword. To define a new type, we start by using the `typedef` keyword, followed by `struct`. Inside the curly braces `{}`, we specify the variables that the struct will hold. After the closing brace `}`, we add the name of the new type we are creating.by convention, type definitions use uppercase letters to show they are symbolic abbreviations, but lowercase can also be used.  
 Once the new type is defined, we can create variables of this type by using the new type name, followed by the variable name.
 ```
 #include <stdio.h>
