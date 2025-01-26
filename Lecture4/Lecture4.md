@@ -210,7 +210,8 @@ int main(){
 	return 0;
 }
 ```
-![](../attachments/image2.png)
+
+![](./attachments/image2.png)
 #### Remarque
 If we are not careful enough with recursive functions, we can end up creating a function that calls itself repeatedly. This can lead to a stack overflow error, causing the program to crash
 ### Higher-Order Functions :
@@ -295,9 +296,81 @@ int main(int argc, char *argv[]){
 	return 0;
 }
 ```
-We save this code as `greeting.c`. Then, we compile it. After compilation, we run the program as follows:
-![](../attachments/image3.png)
+We save this code as `greeting.c`. Then, we compile it. After compilation, we run the program as follows:  
+
+![](./attachments/image3.png)
 The compiled result file is `greeting.out`. We can then run it and provide command-line arguments, such as "Ali" and "Cat". Our program will read these arguments and greet them accordingly.
+### Function prototyping :
+When working on larger and more complex programs, we often create numerous functions. This can sometimes make it difficult to read the main function, as we may need to scroll through many function definitions to reach it. The main function, often considered the core of the program, should be easily accessible for understanding the overall program flow.
+Function prototyping provides an elegant solution. By declaring function prototypes at the beginning of the file, we simply list the functions we will be using. These prototypes include the function's return type, name, and the data types of its parameters, but not the actual function body.
+After the main function, we then provide the complete function definitions, including their implementations. This approach significantly improves code readability and maintainability by keeping the main function concise and providing a clear overview of the program's structure.
+#### Example:
+```
+#include <stdio.h>
+
+float add(float a, float b);
+float divide(float a, float b);
+float multiply(float a, float b;
+float subtract(float a, float b);
+float power(float a, float b);
+float calculate(float a, float b ,float (* fun)(float a, float b));
+int main(){
+	float n1, n2, result;
+	char op;
+	printf("Enter the first number : ");
+	scanf("%f", &n1);
+	printf("Enter the second number : ");
+	scanf("%f", &n2);
+	printf("Enter the operator : ");
+	scanf("%s", &op);
+	switch(op){
+		case '+':
+			result = calculate(n1, n2, add);
+			break;
+		case '-':
+			result = calculate(n1, n2, subtract);
+			break;
+		case '*':
+			result = calculate(n1, n2, multiply);
+			break;
+		case '/':
+			result = calculate(n1, n2, divide);
+			break;
+		case '^':
+			result = calculate(n1, n2, power);
+			break;
+		default:
+			printf("Invalid operator");
+			return 0;
+		break;
+	}
+	printf("The result of %f %c %f is %f", n1, op, n2, result);
+	return 0;
+}
+float add(float a, float b){
+	return a + b;
+}
+float divide(float a, float b){
+	return a / b;
+}
+float multiply(float a, float b){
+	return a * b;
+}
+float subtract(float a, float b){
+	return a - b;
+}
+float power(float a, float b){
+	float p = 1;
+	for (int i = 0; i < b; i++){
+		p *= a;
+	}
+	return p;
+}
+float calculate(float a, float b ,float (* fun)(float a, float b)){
+	return fun(a,b);
+}
+
+```
 ### Functional programming :
 
 Functional programming represent the art of solving our problems by dividing the main problem to small sets of sub problems and creating function for each one of them.  
@@ -330,11 +403,24 @@ Header files are special files used to store function declarations and type defi
 
 ### Creating a Header File :
 
-To create a header file:
-
-1. Create a new file.
-2. Add the function declarations or type definitions we want to share.
-3. Save the file with a `.h` extension.
+1. **Create a New File:** Create a new file with the desired name and the `.h` extension (e.g., `my_header.h`).
+2. **Add Include Guards:**
+    - At the top, add `#ifndef MY_HEADER_H`
+    - On the next line, add `#define MY_HEADER_H`
+    - At the end of the file, add `#endif // MY_HEADER_H`
+3. **Add Declarations:** Inside the include guards, add:
+    - **Function Declarations:** Declare function prototypes (signatures) without their implementations.
+    - **Structure Definitions:** Define the structure of data.
+    - **Type Definitions:** Create aliases for existing data types.
+    - **Macros:** Define macros for code reusability and readability.
+    - **Include Other Headers:** Include other necessary header files using `#include`.
+4. **Save the File:** Save the file with the `.h` extension.
+**Explanation:**
+- **Include Guards:**
+    - `#ifndef MY_HEADER_H`: This checks if a symbol named `MY_HEADER_H` is not defined. If not, it proceeds.
+    - `#define MY_HEADER_H`: This defines the symbol `MY_HEADER_H`.
+    - `#endif `: This marks the end of the conditional block.
+    - These lines together ensure that the contents of the header file are included only once in a given source file, preventing multiple definitions of the same entities and avoiding 
 
 ### Using a Header File in Our Script :
 
@@ -342,9 +428,12 @@ To use the functions or types from a header file in our script, we include the h
 
 First, create a header file named `myheader.h`. Inside this file, define the function `sum`.
 ```
+#ifndef my_header
+#define my_header
 int sum(int a, int b){
 	return a + b;
 }
+#endif
 ```
 Then, we can create a separate script, include `"myheader.h"` in it, and use the `sum` function as needed.
 ```
@@ -353,7 +442,7 @@ Then, we can create a separate script, include `"myheader.h"` in it, and use the
 
 int main(){
 	int a = 4, b = 5, r;
-	r = sum(a, b)
+	r = sum(a, b);
 	printf("Result of %d + %d is %d", a, b, r);
 	return 0;
 }
