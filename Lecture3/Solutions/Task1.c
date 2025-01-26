@@ -7,7 +7,7 @@ int main(){
     scanf("%[^\n]%*c", string);
     for (int i = 0 ; ; i++){
         if(*(string + i) == '\0'){
-            printf("The length of the string is %d", i);
+            printf("The length of the string is %d\n", i);
             break;
         }
     } 
