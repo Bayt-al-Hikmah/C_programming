@@ -20,8 +20,8 @@ float cub(float n){
 	return n * n * n;
 }
 ```
-Here, we can see that our function has `float` as its return type. This means that after executing the function, it will return a `float` value as the result. The function is named `cub`, followed by `()` containing `float n`. This indicates that the function takes a single argument, which is a float number.
-Inside the `{}`, we see the instruction `return n * n * n;`. This means that the function performs the operation `n * n * n` and then returns the result.
+Here, we can see that our function has `float` as its return type. This means that after executing the function, it will return a `float` value as the result. The function is named `cub`, followed by `()` containing `float n`. This indicates that the function takes a single argument, which is a float number.  
+Inside the `{}`, we see the instruction `return n * n * n;`. This means that the function performs the operation `n * n * n` and then returns the result.  
 To use the function, we simply call it by its name, followed by `()` containing the argument we want to pass to the function. If the function returns a result, we can store that result in a variable of the same type as the function's return type.
 #### Example :
 ```
@@ -91,20 +91,20 @@ int main(){
 	return 0;
 }
 ```
-We will encounter an error because the `result` variable is declared _within_ the `sum` function. This means it has **local scope**, and is only accessible _inside_ the function's body.
+We will encounter an error because the `result` variable is declared _within_ the `sum` function. This means it has **local scope**, and is only accessible _inside_ the function's body.  
 Variables declared within a function are not accessible from outside that function. This concept is known as **variable scoping**.
 #### Scope :
 In programming, **scope** refers to the region of a program where a particular variable or function can be accessed and used.
 #### Global scope
-Global scope represents the top-level scope of a script file. Any variable or constant created in the function and constant section (outside the `main` function or any other specific function) belongs to this scope. These are referred to as **global variables**.
+Global scope represents the top-level scope of a script file. Any variable or constant created in the function and constant section (outside the `main` function or any other specific function) belongs to this scope. These are referred to as **global variables**.  
 Global variables can be accessed and used by any function or block of code within the script.
 #### Local scope
-Local scope means a variable can only be seen and used inside the function where it is created, if a variable is made inside a function, it’s called a **local variable**.
+Local scope means a variable can only be seen and used inside the function where it is created, if a variable is made inside a function, it’s called a **local variable**. 
 In the previous example, the variable ``result`` was created inside the ``sum`` function. This means ``result`` is a local variable and can only be used inside that function.
 
 ###  Passing Arguments by Reference in Functions :
 
-When we pass a variable to a function, we're typically working with a **copy** of its value, not the original variable itself, this means that if we modify the value of the variable within the function, the original variable outside the function will remain unchanged.
+When we pass a variable to a function, we're typically working with a **copy** of its value, not the original variable itself, this means that if we modify the value of the variable within the function, the original variable outside the function will remain unchanged.  
 To illustrate this, we can create a function designed to swap the values of two variables, 'a' and 'b'.
 ```
 #include <stdio.h>
@@ -153,7 +153,7 @@ Some special functions don't have a fixed number of arguments they can take. For
 - **Initialize the pointer using** `va_start(ptr, count)`:
 	 - ``ptr`` represent the pointer.
 	 - ``count`` represent how many arguments we have.
-- **Access arguments using `va_arg(ptr, type)`:** It  retrieves the current argument, advances the pointer to the next argument, and returns the retrieved value. The `type` argument specifies the data type of the expected argument.
+- **Access arguments using `va_arg(ptr, type)`:** It  retrieves the current argument, advances the pointer to the next argument, and returns the retrieved value. The `type` argument specifies the data type of the expected argument.  
 - **After processing all arguments, use `va_end(ptr)`:** This macro cleans up the internal state associated with the `va_list` pointer..
 
 ```
@@ -179,7 +179,7 @@ int main(){
 }
 ```
 ### Recursive Funtions :
-Recursive function are special function that have ability to call theirself untill a condition (that we call base state) is valid.
+Recursive function are special function that have ability to call theirself untill a condition (that we call base state) is valid.  
 lets suppose we want to create a function that calculate factorial of numbers  
 we know that:
 
@@ -211,7 +211,7 @@ int main(){
 }
 ```
 
-![](./attachments/image2.png)
+![](./attachments/image2.png)  
 #### Remarque
 If we are not careful enough with recursive functions, we can end up creating a function that calls itself repeatedly. This can lead to a stack overflow error, causing the program to crash
 ### Higher-Order Functions :
@@ -301,8 +301,8 @@ We save this code as `greeting.c`. Then, we compile it. After compilation, we ru
 ![](./attachments/image3.png)
 The compiled result file is `greeting.out`. We can then run it and provide command-line arguments, such as "Ali" and "Cat". Our program will read these arguments and greet them accordingly.
 ### Function prototyping :
-When working on larger and more complex programs, we often create numerous functions. This can sometimes make it difficult to read the main function, as we may need to scroll through many function definitions to reach it. The main function, often considered the core of the program, should be easily accessible for understanding the overall program flow.
-Function prototyping provides an elegant solution. By declaring function prototypes at the beginning of the file, we simply list the functions we will be using. These prototypes include the function's return type, name, and the data types of its parameters, but not the actual function body.
+When working on larger and more complex programs, we often create numerous functions. This can sometimes make it difficult to read the main function, as we may need to scroll through many function definitions to reach it. The main function, often considered the core of the program, should be easily accessible for understanding the overall program flow.  
+Function prototyping provides an elegant solution. By declaring function prototypes at the beginning of the file, we simply list the functions we will be using. These prototypes include the function's return type, name, and the data types of its parameters, but not the actual function body.  
 After the main function, we then provide the complete function definitions, including their implementations. This approach significantly improves code readability and maintainability by keeping the main function concise and providing a clear overview of the program's structure.
 #### Example:
 ```
