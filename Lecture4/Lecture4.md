@@ -298,7 +298,7 @@ int main(int argc, char *argv[]){
 ```
 We save this code as `greeting.c`. Then, we compile it. After compilation, we run the program as follows:  
 
-![](./attachments/image3.png)
+![](./attachments/image3.png)  
 The compiled result file is `greeting.out`. We can then run it and provide command-line arguments, such as "Ali" and "Cat". Our program will read these arguments and greet them accordingly.
 ### Function prototyping :
 When working on larger and more complex programs, we often create numerous functions. This can sometimes make it difficult to read the main function, as we may need to scroll through many function definitions to reach it. The main function, often considered the core of the program, should be easily accessible for understanding the overall program flow.  
