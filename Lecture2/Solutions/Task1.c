@@ -10,7 +10,7 @@ int main(){
     printf("Enter the value of c : ");
     scanf("%f", &c);
     if (a == 0 && b == 0){
-        printf("There is no equation");
+        printf("There is no equation \n");
     }else if(a == 0 && b != 0){
         x = -c / b;
         printf("Solution is :\n");
@@ -18,18 +18,18 @@ int main(){
     }else{
         delta = b * b - 4 * a * c;
         if(delta < 0){
-            printf("No solution ");
+            printf("No solution \n");
 
         }else if(delta == 0){
             x = -b / (2 * a);
             printf("Solution is :\n");
-            printf("x = %f", x);
+            printf("x = %f\n", x);
         }else{
             x1 = (-b + sqrt(delta)) / (2 * a);
-            x2 = (-b + sqrt(delta)) / (2 * a);
+            x2 = (-b - sqrt(delta)) / (2 * a);
             printf("Solutions are :\n");
-            printf("x1 = %f", x1);
-            printf("x2 = %f", x2);
+            printf("x1 = %f\n", x1);
+            printf("x2 = %f\n", x2);
         }
     }
     return 0;
