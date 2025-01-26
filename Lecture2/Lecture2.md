@@ -71,7 +71,7 @@ int main(){
 ## Control Flow :
 ### If Else statement :
 
-Control flow refers to the order in which instructions in a program are executed. It allows us to make decisions and control the program's behavior based on specific conditions.
+Control flow refers to the order in which instructions in a program are executed. It allows us to make decisions and control the program's behavior based on specific conditions.  
 C provides the `if-else` statement to implement conditional execution. This allows the program to execute different blocks of code depending on whether a certain condition is true or false.
 
 ```
@@ -80,7 +80,7 @@ instructions
 }
 ```
 
-We place the condition within parentheses `()` and enclose the instructions to be executed when the condition is true within curly braces `{}`.
+We place the condition within parentheses `()` and enclose the instructions to be executed when the condition is true within curly braces `{}`.  
 This will execute the instructions within the `if` block only if the condition is true. Otherwise, it will ignore them. We can add an `else` statement to provide an alternative set of instructions to be executed if the condition is false.
 
 ```
@@ -91,7 +91,7 @@ instructions to run if condition not valide
 }
 ```
 
-The `else` statement does not require a condition because it executes only when the preceding `if` condition is **false**.
+The `else` statement does not require a condition because it executes only when the preceding `if` condition is **false**.  
 To check for multiple conditions and provide different execution paths, we can use the `else if` statement.
 
 ```
@@ -147,8 +147,8 @@ instruction that run if variable have other value then we provided
 break;
 }
 ```
-We can see that to make a `switch-case` statement, we need a variable to test its value. Then, we provide some values to test in using `case` labels.
-After each `case`, we see that we added the keyword `break`. This means that if the variable meets the value in a `case`, only the instructions inside that `case` will run. If we don't use the `break` keyword, the computer will run all the instructions that come inside the `case` labels after the valid one.
+We can see that to make a `switch-case` statement, we need a variable to test its value. Then, we provide some values to test in using `case` labels.  
+After each `case`, we see that we added the keyword `break`. This means that if the variable meets the value in a `case`, only the instructions inside that `case` will run. If we don't use the `break` keyword, the computer will run all the instructions that come inside the `case` labels after the valid one.  
 Finally, we can see we used the `default` label for the last case. The instructions inside it will run for any other values that don't match any of the `case` labels.
 #### Example :
 ```
@@ -183,9 +183,9 @@ int main(){
 ```
 ## Loops :
 
- Sometimes we need to use and repeat some instructions more than once. We could repeatedly rewrite the lines of code, but this quickly becomes cumbersome and error-prone. Imagine trying to repeat a block of code 100 times! This would result in a very large and unmanageable file for a relatively simple task.
-To address this, we can use **loops**.
-Loops are a powerful programming construct that allow us to repeatedly execute a block of code as long as a specific condition is met. This significantly improves code readability, maintainability, and reduces the risk of errors.
+Sometimes we need to use and repeat some instructions more than once. We could repeatedly rewrite the lines of code, but this quickly becomes cumbersome and error-prone. Imagine trying to repeat a block of code 100 times! This would result in a very large and unmanageable file for a relatively simple task.  
+To address this, we can use **loops**.  
+Loops are a powerful programming construct that allow us to repeatedly execute a block of code as long as a specific condition is met. This significantly improves code readability, maintainability, and reduces the risk of errors.  
 There are three primary types of loops in C:
 -  **`for` loop:** Used when the number of iterations is known in advance.
 - **`while` loop:** Used when the number of iterations is not known in advance, and the loop continues as long as a specific condition remains true.
@@ -240,7 +240,8 @@ int main(){
 ```
 ### Do While Loop :
 
-The last type of loop provided by C is the ``do-while`` loop. While similar to the ``while`` loop, it is used when we don’t know the exact number of times the instructions need to run but have a condition to evaluate. The key difference between the ``do-while`` and ``while`` loop lies in their execution order: the ``do-while`` loop executes the code block first and then checks the condition. As a result, even if the condition is false at the beginning, the code block will still execute at least once.
+The last type of loop provided by C is the ``do-while`` loop. While similar to the ``while`` loop, it is used when we don’t know the exact number of times the instructions need to run but have a condition to evaluate.    
+The key difference between the ``do-while`` and ``while`` loop lies in their execution order: the ``do-while`` loop executes the code block first and then checks the condition. As a result, even if the condition is false at the beginning, the code block will still execute at least once.
 ```
 do{
 instructions we want to repeat
