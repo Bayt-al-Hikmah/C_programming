@@ -12,6 +12,6 @@ int main(){
     int d;
     printf("Enter number : ");
     scanf("%d", &d);
-    printf("%d\n",dec2bin(d));
+    printf("%d\n", dec2bin(d));
     return 0;
 }
