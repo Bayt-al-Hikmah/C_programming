@@ -15,7 +15,7 @@ int largest(int size, int *arr){
 int smallest(int size, int *arr){
     int tmp = *arr;
     for(int i = 0; i < size; i++){
-        if(*(arr+i) < tmp){
+        if(*(arr + i) < tmp){
             tmp = *(arr + i);
         }
         
