@@ -1,3 +1,6 @@
+#ifndef array_funcs
+#define array_funcs
+
 int largest(int size, int *arr){
     int tmp = *arr;
     for(int i = 0; i< size; i++){
@@ -27,3 +30,4 @@ float avg(int size, int *arr){
     }
     return tmp;
 }
+#endif
