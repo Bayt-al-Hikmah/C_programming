@@ -13,7 +13,7 @@ int main(){
     for (int i = 0; i < l; i++){
         printf("Enter How many test subject %d have: ", i + 1);
         scanf("%d", &k);
-        *(subjects + i) = calloc(k, sizeof(int));
+        *(subjects + i) = calloc(k, sizeof(float));
         *(subjects_tests_number + i) = k;
         for (int j = 0; j < k; j++){
             printf("Enter test %d of subject %d grade: ", j + 1, i + 1);
