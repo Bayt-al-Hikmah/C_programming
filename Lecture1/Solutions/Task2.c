@@ -12,6 +12,6 @@ int main(){
     printf("Enter third grade : ");
     scanf("%f", &grades[2]);
     avg = (grades[0] + grades[1] + grades[2]) / 3.0;
-    printf("%s have those marks %f, %f, %f \n And this is his average %f", name, grades[0], grades[1], grades[2], avg);
+    printf("%s have those marks %f, %f, %f \n And this is his average %f\n", name, grades[0], grades[1], grades[2], avg);
     return 0;
 }
