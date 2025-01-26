@@ -146,7 +146,7 @@ C provides basic arithmetic operators for manipulating numbers. These include:
 ``\n`` is a special character that represents a newline. We use it to make a line break and jump to the next line.
 
 #### Escape sequence :
-**Escape sequences** are special character combinations used to represent certain non-printable or hard-to-type characters within a string or character literal. They always start with a backslash (`\`). This signals to the compiler that the following character has a special meaning and should not be treated literally.
+**Escape sequences** are special character combinations used to represent certain non-printable or hard-to-type characters within a string or character literal. They always start with a backslash (`\`). This signals to the compiler that the following character has a special meaning and should not be treated literally.  
 Here are some common escape sequences:
 - `\'` single quote
 - `\"` double quote
@@ -175,7 +175,7 @@ Here are some examples:
 ### Working with Input and Output :
 #### Output and Printing in C :
 
-We print messages to the screen using the ``printf()`` function. Within the parentheses, we write the message we want to display.  
+We print messages to the screen using the ``printf()`` function. Within the parentheses, we write the message we want to display.    
 To include the values of variables within the message, we use placeholder characters:
 
 - **%d** for integers
@@ -196,8 +196,8 @@ These placeholder characters are then replaced with the actual values of the cor
 ```
 #### Getting user Input in C :
 
-Getting user input makes your programs more dynamic. Instead of hardcoding values within the program, you can allow the user to provide input, making the program more flexible and reusable.  
-The ``scanf()`` function is used to read input from the user. Within the ``scanf()`` function, you use placeholder characters to specify the data type of the input you expect.  
+Getting user input makes your programs more dynamic. Instead of hardcoding values within the program, you can allow the user to provide input, making the program more flexible and reusable.    
+The ``scanf()`` function is used to read input from the user. Within the ``scanf()`` function, you use placeholder characters to specify the data type of the input you expect.    
 Here are some common placeholder characters:
 
 - **%d:** Reads an integer value from the user.
