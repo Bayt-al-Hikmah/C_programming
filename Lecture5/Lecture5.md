@@ -19,6 +19,19 @@ unsigned counter;
 bullet bullets[20];
 }Magazine;
 
+void charge(Magazine *m);
+void fire(Magazine *m);
+
+int main(){
+	Magazine magazine;
+	magazine.counter = 0;
+	charge(&magazine);
+	charge(&magazine);
+	fire(&magazine);
+	fire(&magazine);
+	return 0;
+}
+
 void charge(Magazine *m){
     if(m->counter  > 20){
         printf("Magazine Full!\n");
@@ -26,7 +39,7 @@ void charge(Magazine *m){
     }
     m->counter = m->counter + 1;
     printf("Charged bullet %i!\n", m->counter);
-    m->bullets[m->counter-1] = m->counter;
+    m->bullets[m->counter - 1] = m->counter;
     return ;
 }
 
@@ -38,16 +51,6 @@ void fire(Magazine *m){
     printf("Fired  bullet %i!\n", m->counter);
     m->counter = m->counter - 1;
     return ;
-}
-
-int main(){
-	Magazine magazine;
-	magazine.counter = 0;
-	charge(&magazine);
-	charge(&magazine);
-	fire(&magazine);
-	fire(&magazine);
-	return 0;
 }
 ```
 #### Queues :
@@ -64,6 +67,18 @@ unsigned counter;
 Worker workers[20];
 } Application;
 
+void apply(Application *a);
+void hire(Application *a);
+
+int main(){
+	Application application;
+	application.counter = 0;
+	apply(&application);
+	apply(&application);
+	hire(&application);
+	hire(&application);
+	return 0;
+}
 void apply(Application *a){
     if(a->counter  > 20){
         printf("Applications are full!\n");
@@ -71,7 +86,7 @@ void apply(Application *a){
     }
     a->counter = a->counter + 1;
     printf("Person %i Applied to the job!\n", a->counter);
-    a->workers[a->counter-1] = a->counter;
+    a->workers[a->counter - 1] = a->counter;
     return ;
 }
 
@@ -86,16 +101,6 @@ void hire(Application *a){
     }
     a->counter = a->counter - 1;
     return ;
-}
-
-int main(){
-	Application application;
-	application.counter = 0;
-	apply(&application);
-	apply(&application);
-	hire(&application);
-	hire(&application);
-	return 0;
 }
 ```
 ### Linked List and Binary Search Trees :
@@ -119,14 +124,7 @@ typedef struct Node{
     struct Node* next;
 }Node;
 
-void free_elements(Node* n){
-    if(n->next == NULL){
-        free(n);
-        return;
-    }
-    return free_elements(n->next);
-    free(n);
-}
+void free_elements(Node* n);
 
 int main(){
 	Node Head;
@@ -145,12 +143,21 @@ int main(){
 	cursor->next = NULL;
 	cursor = &Head;
 	for (int i = 0; i < n; i++){
-		printf("Data in element %d  is: %d\n", i+1, cursor->data);
+		printf("Data in element %d  is: %d\n", i + 1, cursor->data);
 		cursor = cursor->next;
 	}
 	free_elements(&Head);
 	return 0;
 	
+}
+
+void free_elements(Node* n){
+    if(n->next == NULL){
+        free(n);
+        return;
+    }
+    return free_elements(n->next);
+    free(n);
 }
 ```
 #### Binary Search Trees :
@@ -175,23 +182,8 @@ typedef struct node{
     struct node *right;
 }node;
 
-void free_tree(node *root){
-    if (root == NULL){
-        return;
-    }
-    free_tree(root->left);
-    free_tree(root->right);
-    free(root);
-}
-
-void print_tree(node *root){
-    if (root == NULL){
-        return;
-    }
-    print_tree(root->left);
-    printf("%i\n", root->number);
-    print_tree(root->right);
-}
+void free_tree(node *root);
+void print_tree(node *root);
 
 int main(void){
 
@@ -220,6 +212,23 @@ int main(void){
     return 0;
 }
 
+void free_tree(node *root){
+    if (root == NULL){
+        return;
+    }
+    free_tree(root->left);
+    free_tree(root->right);
+    free(root);
+}
+
+void print_tree(node *root){
+    if (root == NULL){
+        return;
+    }
+    print_tree(root->left);
+    printf("%i\n", root->number);
+    print_tree(root->right);
+}
 
 ```
 
@@ -227,21 +236,21 @@ int main(void){
 #### Dictionary :
 Dictionaries are data structures that store data in a key-value pair format, much like a real-world dictionary. Each key within a dictionary must be unique, and is associated with a corresponding value. Searching for data in a dictionary is incredibly fast, as you can directly access the value by simply providing its corresponding key. However, storing a large number of unique keys can consume significant memory space. Hashing is a common technique used to efficiently store and retrieve keys in a dictionary by mapping them to specific memory locations, thus improving the performance and memory efficiency of dictionary implementations
 #### Hashing and Hash Tables :
-Hashing is a technique that transforms an input value into a shorter, fixed-size representation called a hash code. Hash tables utilize this concept by using an array of hash values, where each value can point to a node. Each node typically stores a value and a pointer to the next node (if there are collisions).
-One of the most significant challenges in using hash tables lies in designing an effective hash function. A poorly designed hash function, which maps many different input values to the same hash code, can lead to frequent collisions. This results in longer linked lists at those specific array indices, significantly slowing down the search process. Conversely, an overly complex hash function might produce a large number of unique hash codes, leading to many empty slots in the hash table, which wastes memory space.
-To illustrate this, consider using a hash table to store student names. If we simply use the first letter of each name as the hash code, we would likely encounter many collisions. For example, names starting with 'A' or 'J' might have a large number of entries, while other letters might have very few or none
-![](../attachments/hash_table.png)
+Hashing is a technique that transforms an input value into a shorter, fixed-size representation called a hash code. Hash tables utilize this concept by using an array of hash values, where each value can point to a node. Each node typically stores a value and a pointer to the next node (if there are collisions).  
+One of the most significant challenges in using hash tables lies in designing an effective hash function. A poorly designed hash function, which maps many different input values to the same hash code, can lead to frequent collisions. This results in longer linked lists at those specific array indices, significantly slowing down the search process. Conversely, an overly complex hash function might produce a large number of unique hash codes, leading to many empty slots in the hash table, which wastes memory space.  
+To illustrate this, consider using a hash table to store student names. If we simply use the first letter of each name as the hash code, we would likely encounter many collisions. For example, names starting with 'A' or 'J' might have a large number of entries, while other letters might have very few or none  
+![](../attachments/hash_table.png)  
 
-we can fix this by using first and second letters as hash this will make searching for element faster but we will end up having 24\*24 hash index instead of only 24 and many of them arn't used , that mean we will take more memory then we will use, and here it come to us, we can use simple hash function tat generated small indexes this will result less memory use and more time searching for value or we can use complexe hash map that will result less time in searching for value but more memory use.
+we can fix this by using first and second letters as hash this will make searching for element faster but we will end up having 24\*24 hash index instead of only 24 and many of them arn't used , that mean we will take more memory then we will use, and here it come to us, we can use simple hash function tat generated small indexes this will result less memory use and more time searching for value or we can use complexe hash map that will result less time in searching for value but more memory use.  
 #### Tries :
-Tries are another form of data structure designed for efficient string storage and retrieval. One of their key advantages is that they allow searches to be performed in constant time, making them ideal for tasks like autocomplete or prefix matching. However, a downside of Tries is that they tend to consume a large amount of memory, as each node can have multiple children representing different characters, leading to significant memory usage, especially when storing many strings with few shared prefixes.
-![](../attachments/tries.png)
+Tries are another form of data structure designed for efficient string storage and retrieval. One of their key advantages is that they allow searches to be performed in constant time, making them ideal for tasks like autocomplete or prefix matching. However, a downside of Tries is that they tend to consume a large amount of memory, as each node can have multiple children representing different characters, leading to significant memory usage, especially when storing many strings with few shared prefixes.  
+![](../attachments/tries.png)  
 ### Time and Memory complexity :
 When solving problems, it's crucial to consider not only the correctness of the solution but also its efficiency. Time and memory complexity are essential concepts for analyzing an algorithm's performance.
 #### Example 1:
-Calculating the sum of the first 'n' numbers.
-- A simple **for loop** iterates through each number, resulting in O(n) time complexity.
-- Utilizing the formula `sum = n * (n + 1) / 2` allows for constant-time calculation O(1) as it directly computes the sum without iteration.
+Calculating the sum of the first 'n' numbers.  
+- A simple **for loop** iterates through each number, resulting in O(n) time complexity.  
+- Utilizing the formula `sum = n * (n + 1) / 2` allows for constant-time calculation O(1) as it directly computes the sum without iteration.  
 **Solution 1:**
 ```
 #include <stdio.h>
@@ -279,7 +288,7 @@ Search algorithms:
 
 ### Introductions :
 
-Computers store data in memory while they are running programs and performing calculations. However, this data is temporary. When a program finishes executing, all the variables and results stored in memory are lost.
+Computers store data in memory while they are running programs and performing calculations. However, this data is temporary. When a program finishes executing, all the variables and results stored in memory are lost.  
 To prevent this data loss, we can store it in files. This allows us to retain the information even after the program has completed its execution. 
 ###  Writing and Appending to Files :
 
@@ -294,7 +303,7 @@ To write data to a file, we can use the following methods:
     - `size`: The size of each data block in bytes.
     - `number_of_blocks`: The number of blocks to be written.
     - `fileptr`: The file pointer.
-- **`fprintf(fileptr, format_string, ...)`:** This function writes formatted data to the file buffer. It accepts the file pointer as the first argument and a format string (similar to `printf`) as the second argument, followed by any necessary arguments for the format specifiers.
+- **`fprintf(fileptr, format_string, ...)`:** This function writes formatted data to the file buffer. It accepts the file pointer as the first argument and a format string (similar to `printf`) as the second argument, followed by any necessary arguments for the format specifiers.  
 Finally, after writing data, it's crucial to close the file using the `fclose(fileptr)` function. This ensures that all data is written to disk properly and releases any system resources associated with the file.
 #### Remarque :
 **buffer** is a region of memory used to temporarily store data. It acts as a holding place for data that is being transferred from one place to another.
@@ -311,7 +320,7 @@ int main(){
 }
 ```
 ### Reading Files :
-Reading files in C follows a similar process to writing them. First, we declare a variable of type `FILE` as a pointer. We then use the `fopen("filename", "mode")` function to open the file. The first argument is the filename, and the second argument specifies the opening mode. For reading, we use the "r" mode.
+Reading files in C follows a similar process to writing them. First, we declare a variable of type `FILE` as a pointer. We then use the `fopen("filename", "mode")` function to open the file. The first argument is the filename, and the second argument specifies the opening mode. For reading, we use the "r" mode.  
 To read data from the file, we can use the following methods:
 
 - **`fgetc(fptr)`:** This function reads a single character from the file and returns it.
@@ -348,7 +357,7 @@ In C programming, EOF (End-of-File) is a special integer constant that signifies
 ### Bitmap Files :
 Bitmaps are a common file format for storing images. They leverage the principle that any color can be created by combining varying amounts of red, green, and blue light (RGB).
 
-A bitmap image represents an image as a grid of pixels. Each pixel is typically represented by 24 bits, with 8 bits each for the intensity of red, green, and blue.
+A bitmap image represents an image as a grid of pixels. Each pixel is typically represented by 24 bits, with 8 bits each for the intensity of red, green, and blue.  
 Before the actual pixel data, a bitmap file contains header information. This metadata is structured into two parts:
 1. **BITMAPFILEHEADER:** This 14-byte header provides general information about the file, such as the file type (identified by the "BM" signature) and the offset to the pixel data within the file.
 2. **BITMAPINFOHEADER:** This 40-byte header contains crucial information about the image itself, including its width, height, color depth, and compression method.
@@ -431,7 +440,7 @@ int main(){
 #### Remarque :
 We use `__attribute__((__packed__))` to tell the compiler to minimize the amount of padding between members of a struct.
 ### Wav Files :
-Another common way to store files is the WAV file format. WAV files are used to store audio data. They begin with a 44-byte "header" that contains metadata about the file, such as the file size, the sampling rate (number of samples per second), and the bit depth (size of each sample, typically 16 bits or 2 bytes).
+Another common way to store files is the WAV file format. WAV files are used to store audio data. They begin with a 44-byte "header" that contains metadata about the file, such as the file size, the sampling rate (number of samples per second), and the bit depth (size of each sample, typically 16 bits or 2 bytes).  
 After the header, the WAV file contains a sequence of audio samples. Each sample is a single 2-byte (16-bit) integer that represents the amplitude of the audio signal at a specific point in time.
 Scaling the value of each sample by a given factor directly affects the volume of the audio.
 
@@ -439,7 +448,7 @@ Scaling the value of each sample by a given factor directly affects the volume o
 - Multiplying each sample value by 0.5 will halve the amplitude, effectively decreasing the volume
 ![](../attachments/wav.png)
 #### Example :
-To change the volume of a WAV file, we first need to obtain an integer value representing the factor by which to multiply each sample.
+To change the volume of a WAV file, we first need to obtain an integer value representing the factor by which to multiply each sample.  
 Next, we need to:
 
 - Read the file header from the input WAV file and copy them to the output WAV file.
