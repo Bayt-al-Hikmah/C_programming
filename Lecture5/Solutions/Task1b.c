@@ -10,7 +10,25 @@ Worker worker;
 struct Application *next;
 } Application;
 
+void apply(Application *app, int worker_number, int counter);
+void hire(Application **app);
+void free_application(Application* app);
 
+int main(){
+    Application *application;
+    application = calloc(1, sizeof(Application));
+    application->next = NULL;
+    application->worker = 0;
+    apply(application, 1, 0);
+    apply(application, 1, 0);
+    hire(&application);
+    apply(application, 1, 0);
+    apply(application, 1, 0);
+    hire(&application);
+    hire(&application);
+    free_application(application);
+    return 0;
+}
 void apply(Application *app, int worker_number, int counter){
     if(counter >= MAX_APPLICATIONS){
         printf("Applications are full!\n");
@@ -28,7 +46,6 @@ void apply(Application *app, int worker_number, int counter){
     }
     apply(app->next, app->worker + 1, counter + 1);   
 }
-
 void hire(Application **app){
     Application *tmp = *app;
     if ((*app)->next == NULL && (*app)->worker == 0){
@@ -49,19 +66,4 @@ if (app->next == NULL && app->worker == 0){
     free_application(app->next);
     free(app);
     return;
-}
-int main(){
-	Application *application;
-	application = calloc(1, sizeof(Application));
-	application->next = NULL;
-    application->worker = 0;
-	apply(application, 1, 0);
-	apply(application, 1, 0);
-	hire(&application);
-    apply(application, 1, 0);
-    apply(application, 1, 0);
-	hire(&application);
-	hire(&application);
-	free_application(application);
-	return 0;
 }
