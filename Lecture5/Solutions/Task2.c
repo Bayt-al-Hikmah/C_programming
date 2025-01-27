@@ -35,6 +35,33 @@ BYTE G;
 BYTE R;
 } __attribute__((__packed__))pixel;
 
+void free_element(char** c, int h);
+void create_array(char*** c, int h, int w);
+void pixel2char(FILE *input, char** c, int h, int w);
+void write_chars(FILE *output, char** c, int h, int w);
+
+int main(int argc, char *argv[]){
+    BITMAPINFOHEADER binfo;
+    BITMAPFILEHEADER bheader;
+    char **c;
+    int h = 0, w = 0, i, j;
+    FILE *input = fopen(argv[1], "r");
+	FILE *output = fopen(argv[2], "w");
+	fread(&bheader, sizeof(BITMAPFILEHEADER), 1, input);
+	fread(&binfo, sizeof(BITMAPINFOHEADER), 1, input);
+	w = abs(binfo.biWidth);
+	h = abs(binfo.biHeight);
+    create_array(&c, h, w);
+    int s=(bheader.bfOffBits - sizeof(BITMAPFILEHEADER));
+    fseek(input, bheader.bfOffBits, SEEK_SET);
+    pixel2char(input, c, h, w);
+    write_chars(output, c, h, w);
+    free_element(c, h);
+	fclose(input);
+	fclose(output);
+	return 0;
+}
+
 void free_element(char** c, int h){
     for (int i = 0; i < h; i++){
         free(*(c + i));
@@ -95,25 +122,3 @@ void write_chars(FILE *output, char** c, int h, int w){
     }
     return ;
 }
-int main(int argc, char *argv[]){
-    BITMAPINFOHEADER binfo;
-    BITMAPFILEHEADER bheader;
-    char **c;
-    int h = 0, w = 0, i, j;
-    FILE *input = fopen(argv[1], "r");
-	FILE *output = fopen(argv[2], "w");
-	fread(&bheader, sizeof(BITMAPFILEHEADER), 1, input);
-	fread(&binfo, sizeof(BITMAPINFOHEADER), 1, input);
-	w = abs(binfo.biWidth);
-	h = abs(binfo.biHeight);
-    create_array(&c, h, w);
-    int s=(bheader.bfOffBits - sizeof(BITMAPFILEHEADER));
-    fseek(input, bheader.bfOffBits, SEEK_SET);
-    pixel2char(input, c, h, w);
-    write_chars(output, c, h, w);
-    free_element(c, h);
-	fclose(input);
-	fclose(output);
-	return 0;
-}
-
