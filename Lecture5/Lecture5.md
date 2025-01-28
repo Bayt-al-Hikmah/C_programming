@@ -3,11 +3,11 @@
 - Working with Files
 - Bitmap and Wave Files
 ## Data Structures :
-When solving problems, we can observe that many problems share common structures and concepts. We can create data types that help us represent these structures effectively.
+When solving problems, we can observe that many problems share common structures and concepts. We can create data types that help us represent these structures effectively.  
 These special data types are the tools we use to implement data structures
 ### Stacks and Queues :
 #### Stacks :
-The stack is one of the data structures that we can use to solve various problems. The fundamental principle of a stack is that it stores data in an array according to the LIFO (Last-In, First-Out) principle. This means that the last value added to the stack is the first one to be retrieved when reading data from the stack.
+The stack is one of the data structures that we can use to solve various problems. The fundamental principle of a stack is that it stores data in an array according to the LIFO (Last-In, First-Out) principle. This means that the last value added to the stack is the first one to be retrieved when reading data from the stack.  
 An example of this is a gun's charging system: the last bullet you insert into the magazine will be the first bullet fired.
 #### Example :
 ```
@@ -54,7 +54,7 @@ void fire(Magazine *m){
 }
 ```
 #### Queues :
-Queues operate on a different principle than stacks. While stacks follow the LIFO (Last-In, First-Out) principle, queues adhere to the FIFO (First-In, First-Out) principle, meaning the first value added to the queue is the first value to be removed from it.
+Queues operate on a different principle than stacks. While stacks follow the LIFO (Last-In, First-Out) principle, queues adhere to the FIFO (First-In, First-Out) principle, meaning the first value added to the queue is the first value to be removed from it.  
 An example of this is a job application system where the first 'n' applicants who meet the requirements are typically offered the job
 #### Example :
 
@@ -112,8 +112,8 @@ A linked list is a collection of nodes, where each node contains two essential p
 1. **Data:** The actual value stored within the node.
 2. **Pointer (or Link):** A reference to the next node in the sequence.
 
-This structure allows for flexible memory allocation, as nodes can be scattered throughout memory, and the list is maintained by following the chain of pointers from one node to the next
-![](../attachments/linked_list.png)
+This structure allows for flexible memory allocation, as nodes can be scattered throughout memory, and the list is maintained by following the chain of pointers from one node to the next  
+![](./attachments/linked_list.png)  
 #### Example :
 ```
 #include <stdio.h>
@@ -167,11 +167,11 @@ Binary Search Trees (BSTs) are a data structure used to store sorted data elemen
     - A value
     - A left pointer: Points to the node containing a smaller value.
     - A right pointer: Points to the node containing a larger value.
-The head of the Binary Search Trees called root node
-![](../attachments/binary-search-tree1.png)
+The head of the Binary Search Trees called root node  
+![](./attachments/binary-search-tree1.png)  
 #### Example :
-We will make this Binray Search Tree
-![](../attachments/bts.png)
+We will make this Binray Search Tree  
+![](./attachments/bts.png)  
 ```
 #include <stdio.h>
 #include <stdlib.h>
@@ -236,15 +236,15 @@ void print_tree(node *root){
 #### Dictionary :
 Dictionaries are data structures that store data in a key-value pair format, much like a real-world dictionary. Each key within a dictionary must be unique, and is associated with a corresponding value. Searching for data in a dictionary is incredibly fast, as you can directly access the value by simply providing its corresponding key. However, storing a large number of unique keys can consume significant memory space. Hashing is a common technique used to efficiently store and retrieve keys in a dictionary by mapping them to specific memory locations, thus improving the performance and memory efficiency of dictionary implementations
 #### Hashing and Hash Tables :
-Hashing is a technique that transforms an input value into a shorter, fixed-size representation called a hash code. Hash tables utilize this concept by using an array of hash values, where each value can point to a node. Each node typically stores a value and a pointer to the next node (if there are collisions).  
-One of the most significant challenges in using hash tables lies in designing an effective hash function. A poorly designed hash function, which maps many different input values to the same hash code, can lead to frequent collisions. This results in longer linked lists at those specific array indices, significantly slowing down the search process. Conversely, an overly complex hash function might produce a large number of unique hash codes, leading to many empty slots in the hash table, which wastes memory space.  
-To illustrate this, consider using a hash table to store student names. If we simply use the first letter of each name as the hash code, we would likely encounter many collisions. For example, names starting with 'A' or 'J' might have a large number of entries, while other letters might have very few or none  
-![](../attachments/hash_table.png)  
+Hashing is a technique that transforms an input value into a shorter, fixed-size representation called a hash code. Hash tables utilize this concept by using an array of hash values, where each value can point to a node. Each node typically stores a value and a pointer to the next node (if there are collisions).    
+One of the most significant challenges in using hash tables lies in designing an effective hash function. A poorly designed hash function, which maps many different input values to the same hash code, can lead to frequent collisions. This results in longer linked lists at those specific array indices, significantly slowing down the search process. Conversely, an overly complex hash function might produce a large number of unique hash codes, leading to many empty slots in the hash table, which wastes memory space.   
+To illustrate this, consider using a hash table to store student names. If we simply use the first letter of each name as the hash code, we would likely encounter many collisions. For example, names starting with 'A' or 'J' might have a large number of entries, while other letters might have very few or none   
+![](./attachments/hash_table.png)  
 
 we can fix this by using first and second letters as hash this will make searching for element faster but we will end up having 24\*24 hash index instead of only 24 and many of them arn't used , that mean we will take more memory then we will use, and here it come to us, we can use simple hash function tat generated small indexes this will result less memory use and more time searching for value or we can use complexe hash map that will result less time in searching for value but more memory use.  
 #### Tries :
 Tries are another form of data structure designed for efficient string storage and retrieval. One of their key advantages is that they allow searches to be performed in constant time, making them ideal for tasks like autocomplete or prefix matching. However, a downside of Tries is that they tend to consume a large amount of memory, as each node can have multiple children representing different characters, leading to significant memory usage, especially when storing many strings with few shared prefixes.  
-![](../attachments/tries.png)  
+![](./attachments/tries.png)  
 ### Time and Memory complexity :
 When solving problems, it's crucial to consider not only the correctness of the solution but also its efficiency. Time and memory complexity are essential concepts for analyzing an algorithm's performance.
 #### Example 1:
@@ -288,7 +288,7 @@ Search algorithms:
 
 ### Introductions :
 
-Computers store data in memory while they are running programs and performing calculations. However, this data is temporary. When a program finishes executing, all the variables and results stored in memory are lost.  
+Computers store data in memory while they are running programs and performing calculations. However, this data is temporary. When a program finishes executing, all the variables and results stored in memory are lost.   
 To prevent this data loss, we can store it in files. This allows us to retain the information even after the program has completed its execution. 
 ###  Writing and Appending to Files :
 
@@ -362,7 +362,7 @@ Before the actual pixel data, a bitmap file contains header information. This me
 1. **BITMAPFILEHEADER:** This 14-byte header provides general information about the file, such as the file type (identified by the "BM" signature) and the offset to the pixel data within the file.
 2. **BITMAPINFOHEADER:** This 40-byte header contains crucial information about the image itself, including its width, height, color depth, and compression method.
 Following these headers, the pixel data is stored as an array of bytes. Each pixel is represented by three consecutive bytes in the order Blue-Green-Red (BGR).
-![](../attachments/bitmap.png)
+![](./attachments/bitmap.png)  
 #### Example :
 In this example, we will see how to grayscale an image. To achieve this, we need to iterate through each pixel in the image and calculate the average of its red, green, and blue color components.
 ```
@@ -441,14 +441,14 @@ int main(){
 We use `__attribute__((__packed__))` to tell the compiler to minimize the amount of padding between members of a struct.
 ### Wav Files :
 Another common way to store files is the WAV file format. WAV files are used to store audio data. They begin with a 44-byte "header" that contains metadata about the file, such as the file size, the sampling rate (number of samples per second), and the bit depth (size of each sample, typically 16 bits or 2 bytes).  
-After the header, the WAV file contains a sequence of audio samples. Each sample is a single 2-byte (16-bit) integer that represents the amplitude of the audio signal at a specific point in time.
+After the header, the WAV file contains a sequence of audio samples. Each sample is a single 2-byte (16-bit) integer that represents the amplitude of the audio signal at a specific point in time.  
 Scaling the value of each sample by a given factor directly affects the volume of the audio.
 
 - Multiplying each sample value by 2.0 will double the amplitude, effectively increasing the volume.
 - Multiplying each sample value by 0.5 will halve the amplitude, effectively decreasing the volume
-![](../attachments/wav.png)
+![](./attachments/wav.png)  
 #### Example :
-To change the volume of a WAV file, we first need to obtain an integer value representing the factor by which to multiply each sample.  
+To change the volume of a WAV file, we first need to obtain an integer value representing the factor by which to multiply each sample.   
 Next, we need to:
 
 - Read the file header from the input WAV file and copy them to the output WAV file.
