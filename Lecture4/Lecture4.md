@@ -455,5 +455,6 @@ Write a recursive function in C that takes a decimal number as input and return 
 Create a header file that contains the following functions: 
 - **Function** to find the largest element in an array.
 - **Function** to find the smallest element.
-- **Function** to calculate the average of all the elements in the array. 
+- **Function** to calculate the average of all the elements in the array.
+
 Then, create a program file that prompts the user to enter the number of elements in the array, dynamically allocates memory for the array, and uses the previously defined functions to find and display the largest element, smallest element, and the average of the array elements.
