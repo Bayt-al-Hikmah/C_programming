@@ -289,14 +289,16 @@ int main(){
 ## Tasks :
 ### Task 1 :
 
-Write a C program that reads three numbers, **a**, **b**, and **c**, from the user, and then solves the quadratic equation:
-$$
-a^2+bx+c =0
-$$
+Write a C program that reads three numbers, **a**, **b**, and **c**, from the user, and then solves the quadratic equation:$`a^2+bx+c =0`$  
+
+
 The program should handle the following cases:
-1. When the discriminant $b^2 - 4ac$ is positive, there are two real and distinct roots.
-2. When the discriminant is zero, there is one real root .
-3. When the discriminant is negative, the equation has no real solutions.
+1. When a and b equal 0, no solution
+2. When a equal 0 and be not 0 only 1 solution $`x = -\frac{c}{b}`$
+3. When a now 0 we solves the quadratic equation
+    - When the discriminant $`b^2 - 4ac`$ is positive, there are two real and distinct roots.
+    - When the discriminant is zero, there is one real root .
+    - When the discriminant is negative, the equation has no real solutions.
 ### Task 2:
 Write a program that reads a number **n** from the user and displays all the prime numbers from 0 to **n**.
 #### Hint :
